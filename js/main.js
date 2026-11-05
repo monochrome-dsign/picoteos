@@ -321,16 +321,74 @@
     });
   }
 
-  /* ---------- Índice de páginas legales: sección activa ---------- */
-  var toc = $$(".toc a");
-  if (toc.length && "IntersectionObserver" in window) {
-    var secs = toc.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
-    var tio2 = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        toc.forEach(function (a, i) { a.classList.toggle("is-active", secs[i] === e.target); });
-      });
-    }, { rootMargin: "-30% 0px -60% 0px" });
-    secs.forEach(function (s) { if (s) tio2.observe(s); });
+  /* ---------- Páginas legales: selector de apartados ---------- */
+  var doc = $(".doc"), tocLinks = $$(".toc a");
+  if (doc && tocLinks.length) {
+    var secs = tocLinks.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
+    var content = $(".doc__content", doc);
+    doc.classList.add("is-selector");
+    var toc = $(".toc", doc);
+    toc.setAttribute("role", "tablist");
+    toc.setAttribute("aria-orientation", "vertical");
+
+    var count = document.createElement("p"); count.className = "doc__count";
+    var pager = document.createElement("div"); pager.className = "doc__pager";
+    pager.innerHTML = '<button type="button" class="prev"><small>← Anterior</small><span></span></button><button type="button" class="next"><small>Siguiente →</small><span></span></button>';
+    var prevB = $(".prev", pager), nextB = $(".next", pager);
+
+    tocLinks.forEach(function (a, i) {
+      a.setAttribute("role", "tab");
+      a.id = "tab-" + secs[i].id;
+      a.setAttribute("aria-controls", secs[i].id);
+      secs[i].setAttribute("role", "tabpanel");
+      secs[i].setAttribute("aria-labelledby", a.id);
+      secs[i].tabIndex = -1;
+    });
+
+    var cur = -1;
+    var show = function (i, opts) {
+      opts = opts || {};
+      if (i < 0 || i >= secs.length) return;
+      cur = i;
+      secs.forEach(function (s, k) { s.hidden = k !== i; s.classList.toggle("in", k === i && !reduce); });
+      tocLinks.forEach(function (a, k) { a.setAttribute("aria-selected", k === i ? "true" : "false"); a.tabIndex = k === i ? 0 : -1; });
+      secs[i].insertBefore(count, secs[i].firstChild);
+      count.textContent = "Apartado " + (i + 1) + " de " + secs.length;
+      secs[i].appendChild(pager);
+      prevB.hidden = i === 0; nextB.hidden = i === secs.length - 1;
+      if (i > 0) $("span", prevB).textContent = tocLinks[i - 1].textContent;
+      if (i < secs.length - 1) $("span", nextB).textContent = tocLinks[i + 1].textContent;
+      tocLinks[i].scrollIntoView({ block: "nearest", inline: "center", behavior: reduce ? "auto" : "smooth" });
+      if (opts.hash !== false) {
+        try { history.replaceState(null, "", "#" + secs[i].id); } catch (e) {}
+      }
+      if (opts.scroll) {
+        var top = content.getBoundingClientRect().top + window.scrollY - 110;
+        if (window.scrollY > top) window.scrollTo({ top: top, behavior: reduce ? "auto" : "smooth" });
+      }
+      if (opts.focus) secs[i].focus({ preventScroll: true });
+    };
+
+    tocLinks.forEach(function (a, i) {
+      a.addEventListener("click", function (e) { e.preventDefault(); show(i, { scroll: true }); });
+    });
+    toc.addEventListener("keydown", function (e) {
+      var k = e.key, n = secs.length, i = cur;
+      if (k === "ArrowDown" || k === "ArrowRight") i = (cur + 1) % n;
+      else if (k === "ArrowUp" || k === "ArrowLeft") i = (cur - 1 + n) % n;
+      else if (k === "Home") i = 0; else if (k === "End") i = n - 1; else return;
+      e.preventDefault(); show(i); tocLinks[i].focus();
+    });
+    prevB.addEventListener("click", function () { show(cur - 1, { scroll: true, focus: true }); });
+    nextB.addEventListener("click", function () { show(cur + 1, { scroll: true, focus: true }); });
+
+    var fromHash = function () {
+      var id = (location.hash || "").slice(1);
+      var i = secs.map(function (s) { return s.id; }).indexOf(id);
+      return i;
+    };
+    var start = fromHash();
+    show(start >= 0 ? start : 0, { hash: false });
+    window.addEventListener("hashchange", function () { var i = fromHash(); if (i >= 0 && i !== cur) show(i, { scroll: true, hash: false }); });
   }
 })();
