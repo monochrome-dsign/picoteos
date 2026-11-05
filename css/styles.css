@@ -117,7 +117,7 @@ button { font: inherit; }
 }
 
 /* ---------- HERO ---------- */
-.hero { padding: 120px 100px 100px; display: flex; justify-content: center; min-height: 720px; align-items: center; }
+.hero { padding: 120px 100px 20px; display: flex; justify-content: center; align-items: center; }
 .hero__inner { width: 100%; max-width: 1440px; display: flex; gap: 32px; align-items: center; }
 .hero__text { display: flex; flex-direction: column; gap: 32px; align-items: flex-start; flex-shrink: 0; }
 .hero__title {
@@ -175,12 +175,11 @@ button { font: inherit; }
 .logo-band-wrap { position: relative; overflow: hidden; }
 
 /* ---------- CARTA ---------- */
-.carta { position: relative; background-color: #fff; }
-.wave { display: block; width: 100%; height: auto; position: relative; z-index: 2; }
-.wave--top { margin-top: -2px; background-color: var(--verde); }
-.wave--bottom { margin-bottom: -2px; }
-.carta__bento { display: flex; justify-content: center; padding: 84px 120px 120px; }
-.carta__inner { width: 100%; max-width: 1440px; display: flex; flex-direction: column; gap: 36px; padding: 48px; }
+.carta-wrap { background: var(--verde); position: relative; z-index: 1; margin-block: -2px; }
+.carta { position: relative; background-color: #fff; border-radius: 52px; padding: 0 120px; }
+.carta--page { padding: 0; }
+.carta__bento { display: flex; justify-content: center; }
+.carta__inner { width: 100%; max-width: 1200px; display: flex; flex-direction: column; gap: 36px; padding: 96px 48px; }
 .carta__head { display: flex; flex-direction: column; gap: 12px; }
 .h-carta {
   margin: 0; font-family: var(--f-display); font-style: italic; font-weight: 700;
@@ -242,7 +241,7 @@ button { font: inherit; }
 .cta p { margin: 0; font-family: var(--f-display); font-size: 30px; line-height: 22px; color: var(--crema); font-variation-settings: "SOFT" 0, "WONK" 1; }
 
 /* ---------- VEN A VISITARNOS ---------- */
-.visita { background: var(--marron); padding: 120px; display: flex; justify-content: center; position: relative; z-index: 1; filter: drop-shadow(0 36px 2px rgba(0, 0, 0, .25)); }
+.visita { background: var(--marron); padding: 120px; display: flex; justify-content: center; position: relative; z-index: 1; }
 .visita__inner { width: 100%; max-width: 1440px; display: flex; flex-direction: column; gap: 24px; }
 .visita h2 {
   margin: 0; font-family: var(--f-display); font-style: italic; font-weight: 700; font-size: 58px; line-height: 36px;
@@ -281,7 +280,8 @@ button { font: inherit; }
 .dia.hoy { background: var(--crema); color: var(--marron); border-radius: 12px; border-bottom-color: transparent; }
 
 /* ---------- FAQ + FORM ---------- */
-.faqform { background-color: var(--crema-2); padding: 120px; display: flex; justify-content: center; }
+.crema-wrap { background-color: var(--crema-2); }
+.faqform { padding: 120px; display: flex; justify-content: center; }
 .faqform__inner { width: 100%; max-width: 1440px; display: flex; gap: 24px; align-items: stretch; }
 .faq { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
 .faq h2 { margin: 0; font-family: var(--f-display); font-weight: 700; font-size: 40px; line-height: 40px; font-variation-settings: "SOFT" 0, "WONK" 1; }
@@ -355,7 +355,7 @@ button { font: inherit; }
 .hp { position: absolute !important; left: -9999px !important; }
 
 /* ---------- REDES SOCIALES ---------- */
-.redes { background: var(--crema-2); padding: 8px; }
+.redes { padding: 8px; }
 .redes__card { background: var(--gris); border-radius: 32px; padding: 16px; display: flex; flex-direction: column; gap: 21px; align-items: center; }
 .feed { width: 100%; padding: 4px; }
 .feed__widget { width: 100%; min-height: 0; }
@@ -374,7 +374,7 @@ button { font: inherit; }
 .redes__icons img { width: 20px; height: 20px; }
 
 /* ---------- TESTIMONIOS ---------- */
-.testimonios { background-color: var(--crema-2); padding: 120px 0; display: flex; flex-direction: column; gap: 40px; overflow: hidden; }
+.testimonios { padding: 120px 0; display: flex; flex-direction: column; gap: 40px; overflow: hidden; }
 .testimonios__head { padding: 0 120px; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; max-width: calc(1440px); width: 100%; margin: 0 auto; }
 .testimonios .rating { background: var(--gris); border-radius: 12px; padding: 8px; }
 .testimonios .rating__text { color: var(--marron); }
@@ -475,6 +475,7 @@ button { font: inherit; }
 .page-hero h1 { margin: 0 auto; max-width: 1000px; font-family: var(--f-display); font-style: italic; font-weight: 700; font-size: clamp(48px, 7.5vw, 108px); line-height: .92; letter-spacing: -.045em; font-variation-settings: "SOFT" 77, "WONK" 0; }
 .page-hero p { margin: 22px auto 0; max-width: 640px; font-size: 20px; line-height: 1.35; color: var(--crema-2); }
 .page-body { background-color: var(--crema-2); padding: 90px var(--gutter) 120px; }
+.carta--page .page-body { padding-top: 72px; }
 .doc { max-width: 880px; margin: 0 auto; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; align-items: start; }
 .toc { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 4px; }
 .toc p { margin: 0 0 8px; font-family: var(--f-mono); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; opacity: .7; }
@@ -559,8 +560,9 @@ button { font: inherit; }
   .sticker--salero { left: 74.1%; top: 71%; width: 17.3%; }
 }
 @media (max-width: 1024px) {
-  .carta__bento { padding: 64px 40px 90px; }
-  .carta__inner { padding: 24px 0; }
+  .carta { padding: 0 40px; border-radius: 40px; }
+  .carta--page { padding: 0; }
+  .carta__inner { padding: 72px 0; }
   .visita, .faqform { padding: 90px 40px; }
   .visita__grid, .faqform__inner { flex-direction: column; }
   .mapa { min-height: 380px; }
@@ -575,7 +577,7 @@ button { font: inherit; }
   .nav { padding: 18px 16px; border-radius: 0 0 24px 24px; }
   .nav__links { gap: 26px; }
   .nav__links a { font-size: 18px; }
-  .hero { padding: 110px 16px 64px; min-height: 0; }
+  .hero { padding: 110px 16px 24px; }
   .hero__inner { flex-direction: column; align-items: flex-start; gap: 40px; }
   .hero__text { gap: 24px; flex-shrink: 1; }
   .hero__title { font-size: clamp(52px, 15vw, 90px); }
@@ -588,7 +590,9 @@ button { font: inherit; }
   .plan__card { aspect-ratio: auto; min-height: 520px; padding: 48px 16px; gap: 32px; border-radius: 22px; }
   .plan__title { white-space: normal; font-size: clamp(44px, 13vw, 72px); line-height: .9; letter-spacing: -.03em; }
   .plan__box p { font-size: 22px; line-height: 1.2; letter-spacing: -1px; }
-  .carta__bento { padding: 40px 16px 64px; }
+  .carta { padding: 0 16px; border-radius: 28px; }
+  .carta--page { padding: 0; }
+  .carta__inner { padding: 48px 0; }
   .h-carta { font-size: 44px; line-height: 1.1; }
   .carta__sub { font-size: 18px; }
   .tabs { flex-wrap: nowrap; overflow-x: auto; margin: 0 -16px; padding: 4px 16px 8px; scrollbar-width: none; }

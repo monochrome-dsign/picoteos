@@ -143,11 +143,15 @@
     var hoy = $('.dia[data-dia="' + ahora.d + '"]');
     if (hoy) {
       hoy.classList.add("hoy"); hoy.setAttribute("aria-current", "date");
-      var rango = $(".dia__h", hoy).textContent.match(/(\d{2}):(\d{2})\D+(\d{2}):(\d{2})/);
+      // cada día puede tener dos turnos (mediodía y noche)
+      var abierto = $$(".dia__h", hoy).some(function (el) {
+        var r = el.textContent.match(/(\d{2}):(\d{2})\D+(\d{2}):(\d{2})/);
+        if (!r) return false;
+        var a = +r[1] * 60 + +r[2], c = +r[3] * 60 + +r[4];
+        return ahora.m >= a && ahora.m < c;
+      });
       var estado = $("#estado");
-      if (rango && estado) {
-        var a = +rango[1] * 60 + +rango[2], c = +rango[3] * 60 + +rango[4];
-        var abierto = ahora.m >= a && ahora.m < c;
+      if (estado) {
         estado.textContent = abierto ? "Abierto ahora" : "Cerrado ahora";
         estado.classList.toggle("abierto", abierto);
         estado.hidden = false;

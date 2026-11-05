@@ -34,7 +34,8 @@
 <main>
 
   <!-- HERO -->
-  <section class="hero grid-dark" id="inicio" aria-labelledby="hero-title">
+  <div class="top grid-dark">
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
     <div class="hero__inner">
       <div class="hero__text">
         <div class="rating reveal" style="--d:.05s" aria-label="Valoración 4,5 de 5 en Google, más de 500 opiniones">
@@ -64,7 +65,7 @@
   </section>
 
   <!-- TÚ ELIGES EL PLAN -->
-  <section class="plan grid-dark" id="nosotros" aria-labelledby="plan-title">
+  <section class="plan" id="nosotros" aria-labelledby="plan-title">
     <div class="plan__card zoom-in">
       <img class="plan__bg" src="assets/plan-fondo.jpg" alt="" data-parallax-bg>
       <h2 class="plan__title" id="plan-title"><span class="reveal" style="display:block;--d:.1s">Tú eliges el plan</span><span class="reveal" style="display:block;--d:.22s">nosotros cocinamos.</span></h2>
@@ -76,6 +77,7 @@
       </div>
     </div>
   </section>
+  </div>
 
   <!-- LOGO -->
   <div class="logo-band-wrap" aria-hidden="true">
@@ -83,8 +85,8 @@
   </div>
 
   <!-- CARTA -->
+  <div class="carta-wrap">
   <section class="carta grid-light" id="carta" aria-labelledby="carta-title">
-    <img class="wave wave--top" src="assets/ola-superior.svg" alt="" aria-hidden="true" width="1440" height="74">
     <div class="carta__bento">
       <div class="carta__inner">
         <div class="carta__head">
@@ -120,8 +122,8 @@
         </div>
       </div>
     </div>
-    <img class="wave wave--bottom" src="assets/ola-inferior.svg" alt="" aria-hidden="true" width="1440" height="74">
   </section>
+  </div>
 
   <!-- CTA -->
   <section class="cta grid-dark" aria-labelledby="cta-title">
@@ -153,12 +155,12 @@
         </div>
         <div class="horario">
           <h3 class="reveal">Abrimos <span class="estado" id="estado" hidden></span></h3>
-          <div class="dia reveal" data-dia="1" style="--d:.04s"><span class="dia__nombre">Lun</span><span class="dia__h">12:00–21:00</span><span class="dia__h">12:00–21:00</span></div>
-          <div class="dia reveal" data-dia="2" style="--d:.08s"><span class="dia__nombre">Mar</span><span class="dia__h">12:00–21:00</span><span class="dia__h">12:00–21:00</span></div>
-          <div class="dia reveal" data-dia="3" style="--d:.12s"><span class="dia__nombre">Mié</span><span class="dia__h">12:00–21:00</span><span class="dia__h">12:00–21:00</span></div>
-          <div class="dia reveal" data-dia="4" style="--d:.16s"><span class="dia__nombre">Jue</span><span class="dia__h">12:00–21:00</span><span class="dia__h">12:00–21:00</span></div>
-          <div class="dia reveal" data-dia="5" style="--d:.20s"><span class="dia__nombre">Vie</span><span class="dia__h">12:00–22:00</span><span class="dia__h">12:00–22:00</span></div>
-          <div class="dia reveal" data-dia="6" style="--d:.24s"><span class="dia__nombre">Sáb</span><span class="dia__h">12:00–22:00</span><span class="dia__h">12:00–22:00</span></div>
+          <div class="dia reveal" data-dia="1" style="--d:.04s"><span class="dia__nombre">Lun</span><span class="dia__h">11:00–16:00</span><span class="dia__h">20:00–23:00</span></div>
+          <div class="dia reveal" data-dia="2" style="--d:.08s"><span class="dia__nombre">Mar</span><span class="dia__h">11:00–16:00</span><span class="dia__h">20:00–23:00</span></div>
+          <div class="dia reveal" data-dia="3" style="--d:.12s"><span class="dia__nombre">Mié</span><span class="dia__h">11:00–16:00</span><span class="dia__h">20:00–23:00</span></div>
+          <div class="dia reveal" data-dia="4" style="--d:.16s"><span class="dia__nombre">Jue</span><span class="dia__h">11:00–16:00</span><span class="dia__h">20:00–23:00</span></div>
+          <div class="dia reveal" data-dia="5" style="--d:.20s"><span class="dia__nombre">Vie</span><span class="dia__h">11:00–16:00</span><span class="dia__h">20:00–23:00</span></div>
+          <div class="dia reveal" data-dia="6" style="--d:.24s"><span class="dia__nombre">Sáb</span><span class="dia__h">11:00–16:00</span><span class="dia__h">20:00–23:00</span></div>
           <div class="dia reveal" data-dia="0" style="--d:.28s"><span class="dia__nombre">Dom</span><span class="dia__h">09:00–16:00</span><span class="dia__h">Cerrado</span></div>
         </div>
       </div>
@@ -166,7 +168,8 @@
   </section>
 
   <!-- FAQ + FORMULARIO -->
-  <section class="faqform grid-light" id="contacto" aria-label="Preguntas frecuentes y contacto">
+  <div class="crema-wrap grid-light">
+  <section class="faqform" id="contacto" aria-label="Preguntas frecuentes y contacto">
     <div class="faqform__inner">
       <div class="faq" id="faq">
         <h2 class="reveal">Preguntas frecuentes</h2>
@@ -269,7 +272,7 @@
   </section>
 
   <!-- TESTIMONIOS -->
-  <section class="testimonios grid-light" id="opiniones" aria-labelledby="testimonios-title">
+  <section class="testimonios" id="opiniones" aria-labelledby="testimonios-title">
     <div class="testimonios__head">
       <div class="rating reveal" aria-label="Valoración 4,5 de 5 en Google, más de 500 opiniones">
         <span class="rating__icons" aria-hidden="true">
@@ -286,6 +289,7 @@
     <div class="strip" id="strip" tabindex="0" aria-label="Reseñas de clientes, desplázate horizontalmente"></div>
     <div class="swipe"><span><button type="button" data-dir="-1" aria-label="Reseñas anteriores">←</button> desliza para leer más <button type="button" data-dir="1" aria-label="Más reseñas">→</button></span></div>
   </section>
+  </div>
 
 </main>
 
