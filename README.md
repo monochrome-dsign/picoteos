@@ -1,6 +1,6 @@
 # Picoteo's · Web
 
-Web de Picoteo's, comida casera para llevar en San José de la Rinconada (Sevilla).
+Web de Picoteo's ([www.picoteos.es](https://www.picoteos.es)), comida casera para llevar en San José de la Rinconada (Sevilla).
 
 Es una web estática (HTML, CSS y JavaScript sin dependencias): se puede publicar en GitHub Pages, Netlify, Hostinger o cualquier hosting.
 
@@ -26,7 +26,7 @@ assets/            Imágenes, iconos y logos exportados del Figma
 ## Antes de publicar
 
 1. **Formulario de contacto.** Envía los mensajes a `comidaspicoteos@gmail.com` mediante [FormSubmit](https://formsubmit.co). El primer envío manda un correo de activación a esa cuenta: hay que abrirlo y pulsar el enlace una vez.
-2. **Datos legales.** Rellenar el NIF/CIF y el proveedor de alojamiento, marcados como `[pendiente]` en `politica-privacidad.html` e `informacion-legal.html`.
+2. **Datos legales.** El correo de contacto de los textos legales es provisional (`monochromejoseantonio@gmail.com`): cambiarlo en `politica-privacidad.html` e `informacion-legal.html` cuando haya uno definitivo.
 3. **Carta.** Revisar los precios en `js/carta.js`.
 
 ## Servicios externos
