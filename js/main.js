@@ -53,7 +53,7 @@
   if (!reduce) {
     var heroImg = $("[data-parallax]");
     var planBg = $("[data-parallax-bg]");
-    var planCard = planBg && planBg.parentElement;
+    var planCard = planBg && planBg.closest(".plan__card");
     if (heroImg && window.matchMedia("(pointer: fine)").matches) {
       hero.addEventListener("mousemove", function (ev) {
         var r = hero.getBoundingClientRect();
@@ -68,7 +68,7 @@
         var r = planCard.getBoundingClientRect(), vh = window.innerHeight;
         if (r.bottom < 0 || r.top > vh) return;
         var p = (r.top + r.height / 2 - vh / 2) / vh; // -1..1
-        planBg.style.transform = "scale(1.12) translate3d(0," + (p * 40).toFixed(1) + "px,0)";
+        planBg.style.transform = "scale(1.03) translate3d(0," + (p * 10).toFixed(1) + "px,0)";
       };
       window.addEventListener("scroll", function () { requestAnimationFrame(onScroll); }, { passive: true });
       onScroll();

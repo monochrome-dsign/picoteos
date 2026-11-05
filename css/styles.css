@@ -149,7 +149,8 @@ button { font: inherit; }
   display: flex; flex-direction: column; gap: 48px; align-items: center; justify-content: center;
   padding: 80px 120px; isolation: isolate;
 }
-.plan__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; transform: scale(1.12); will-change: transform; }
+.plan__bg-wrap { position: absolute; inset: 0; z-index: -1; overflow: hidden; border-radius: inherit; }
+.plan__bg { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 49%; transform: scale(1.03); will-change: transform; }
 .plan__title {
   margin: 0; text-align: center; color: #fff;
   font-family: var(--f-display); font-style: italic; font-weight: 768;
