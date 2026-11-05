@@ -25,8 +25,8 @@ assets/            Imágenes, iconos y logos exportados del Figma
 
 ## Antes de publicar
 
-1. **Formulario de contacto.** Envía los mensajes a `comidaspicoteos@gmail.com` mediante [FormSubmit](https://formsubmit.co). El primer envío manda un correo de activación a esa cuenta: hay que abrirlo y pulsar el enlace una vez.
-2. **Datos legales.** El correo de contacto de los textos legales es provisional (`monochromejoseantonio@gmail.com`): cambiarlo en `politica-privacidad.html` e `informacion-legal.html` cuando haya uno definitivo.
+1. **Formulario de contacto.** Envía los mensajes a `monochromejoseantonio@gmail.com` (correo provisional; para cambiarlo, edita la dirección en `index.html` y `js/main.js`) mediante [FormSubmit](https://formsubmit.co). El primer envío manda un correo de activación a esa cuenta: hay que abrirlo y pulsar el enlace una vez.
+2. **Datos legales.** El correo de contacto de los textos legales y del formulario es provisional (`monochromejoseantonio@gmail.com`): cambiarlo en `politica-privacidad.html` e `informacion-legal.html` cuando haya uno definitivo.
 3. **Carta.** Revisar los precios en `js/carta.js`.
 
 ## Servicios externos

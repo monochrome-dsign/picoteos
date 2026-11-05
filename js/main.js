@@ -159,7 +159,7 @@
     } else { dias[0].classList.add("hoy"); }
   }
 
-  /* ---------- Formulario → comidaspicoteos@gmail.com (FormSubmit) ---------- */
+  /* ---------- Formulario → monochromejoseantonio@gmail.com (FormSubmit) ---------- */
   var form = $("#form");
   if (form) {
     var msg = $("#form-msg"), btn = $(".btn-enviar", form);
@@ -199,7 +199,7 @@
       btn.disabled = true; btn.classList.add("is-loading");
       var data = new FormData(form);
       data.append("_replyto", data.get("email"));
-      fetch("https://formsubmit.co/ajax/comidaspicoteos@gmail.com", { method: "POST", headers: { Accept: "application/json" }, body: data })
+      fetch("https://formsubmit.co/ajax/monochromejoseantonio@gmail.com", { method: "POST", headers: { Accept: "application/json" }, body: data })
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || j.success === "false" || j.success === false) throw new Error(j.message || "error"); return j; }); })
         .then(function () {
           form.reset();
@@ -208,7 +208,7 @@
         })
         .catch(function () {
           msg.className = "form__msg ko";
-          msg.innerHTML = 'No hemos podido enviar el mensaje. Inténtalo de nuevo o escríbenos a <a href="mailto:comidaspicoteos@gmail.com">comidaspicoteos@gmail.com</a>.';
+          msg.innerHTML = 'No hemos podido enviar el mensaje. Inténtalo de nuevo o escríbenos a <a href="mailto:monochromejoseantonio@gmail.com">monochromejoseantonio@gmail.com</a>.';
         })
         .then(function () { btn.disabled = false; btn.classList.remove("is-loading"); });
     });
